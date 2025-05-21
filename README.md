@@ -1,5 +1,7 @@
 # Project 3: Spots
 
+[link to git page](https://github.com/ezrabales/project-3)
+
 ### Overview
 
 - Intro

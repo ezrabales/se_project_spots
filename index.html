@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Ezra Bales" />
+    <meta
+      name="keywords"
+      content="spots, social media, media, photots, profile"
+    />
+    <meta
+      name="description"
+      content="a social media web app designed around sharing photos"
+    />
+    <title>SPOTS</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="./vendor/fonts.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img class="header__logo" src="./images/Logo.svg" alt="spots logo" />
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile__content">
+            <img
+              class="profile__avatar"
+              src="./images/avatar.jpg"
+              alt="profile image"
+            />
+            <div class="profile__text">
+              <div class="profile__name-and-description">
+                <p class="profile__name">Bessie Coleman</p>
+                <p class="profile__description">Civil Aviator</p>
+              </div>
+              <button class="profile__edit-profile" type="button">
+                <img
+                  class="profile__edit-icon"
+                  src="./images/edit-icon.svg"
+                  alt="edit icon"
+                />
+                edit profile
+              </button>
+            </div>
+          </div>
+          <button class="profile__new-post" type="button">+ New Post</button>
+        </section>
+        <section class="cards">
+          <ul class="cards__list">
+            <li class="card">
+              <img
+                class="card__image"
+                src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
+                alt="building and mountain from window"
+              />
+              <div class="card__image-footer">
+                <p class="card__name">Val Thorens</p>
+                <button class="card__like-btn" type="button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                class="card__image"
+                src="./images/2-photo-by-ceiline-from-pexels.jpg"
+                alt="foreign restraunt"
+              />
+              <div class="card__image-footer">
+                <p class="card__name">Restraunt terrace</p>
+                <button class="card__like-btn" type="button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                class="card__image"
+                src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
+                alt="people sitting at outside cafe"
+              />
+              <div class="card__image-footer">
+                <p class="card__name">An outdoor cafe</p>
+                <button class="card__like-btn" type="button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                class="card__image"
+                src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
+                alt="long bridge in forest"
+              />
+              <div class="card__image-footer">
+                <p class="card__name">A very long bridge, over the forest...</p>
+                <button class="card__like-btn" type="button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                class="card__image"
+                src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
+                alt="long hallway"
+              />
+              <div class="card__image-footer">
+                <p class="card__name">Tunnel with morning light</p>
+                <button class="card__like-btn" type="button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                class="card__image"
+                src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
+                alt="snowy hut in forest"
+              />
+              <div class="card__image-footer">
+                <p class="card__name">Mountain house</p>
+                <button class="card__like-btn" type="button"></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">2023 © Spots</p>
+      </footer>
+    </div>
+  </body>
+</html>

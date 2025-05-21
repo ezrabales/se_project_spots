@@ -1,0 +1,135 @@
+.profile {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #21212166;
+  padding: 34px 0 20px;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.profile__content {
+  display: flex;
+  gap: 20px;
+  width: 80%;
+}
+
+.profile__avatar {
+  border-radius: 8px;
+  width: 190px;
+  height: 190px;
+}
+
+.profile__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile__name-and-description {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 60px;
+  height: auto;
+  max-width: 900px;
+}
+
+.profile__name {
+  min-height: 32px;
+  height: auto;
+  width: auto;
+  font-family: "Poppins", Times, serif;
+  font-weight: 500;
+  line-height: 100%;
+  font-size: 32px;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  color: #212121;
+}
+
+.profile__description {
+  min-height: 16px;
+  height: auto;
+  width: auto;
+  font-family: "Poppins", Times, serif;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  color: #212121b2;
+}
+
+.profile__edit-profile {
+  display: flex;
+  gap: 8px;
+  opacity: 70%;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.profile__edit-profile:hover {
+  opacity: 85%;
+}
+
+.profile__new-post {
+  width: 149px;
+  height: 52px;
+  align-self: end;
+  border-radius: 8px;
+  background-color: #212121;
+  color: #fcf5e5;
+  border: 0;
+  font-family: "Poppins", Times, serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.profile__new-post:hover {
+  background-color: #333333;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+  .profile__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .profile__avatar {
+    height: 80px;
+    width: 80px;
+  }
+  .profile__text {
+    gap: 32px;
+  }
+  .profile__name-and-description {
+    align-items: center;
+    gap: 6px;
+    height: auto;
+  }
+  .profile__name {
+    font-size: 20px;
+  }
+  .profile__edit-profile {
+    justify-content: center;
+  }
+  .profile__new-post {
+    width: 100%;
+    margin: 0 auto;
+  }
+}

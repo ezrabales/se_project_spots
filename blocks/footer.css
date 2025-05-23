@@ -3,10 +3,9 @@
   justify-content: center;
   align-items: center;
   color: #212121b2;
-  height: 118px;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 60px 0;
 }
 
 .footer__copyright {
@@ -14,4 +13,5 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
+  margin: 0;
 }

@@ -1,9 +1,8 @@
 .header {
-  height: 46px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .header__logo {

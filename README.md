@@ -1,6 +1,6 @@
 # Project 3: Spots
 
-[link to git page](https://github.com/ezrabales/project-3)
+[link to git page](https://github.com/ezrabales/se_project_spots)
 
 ### Overview
 

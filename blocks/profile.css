@@ -14,6 +14,7 @@
 }
 
 .profile__avatar {
+  object-fit: cover;
   border-radius: 8px;
   width: 190px;
   height: 190px;
@@ -35,7 +36,7 @@
 }
 
 .profile__name {
-  min-height: 32px;
+  margin: 0;
   height: auto;
   width: auto;
   font-family: "Poppins", Times, serif;
@@ -51,7 +52,7 @@
 }
 
 .profile__description {
-  min-height: 16px;
+  margin: 0;
   height: auto;
   width: auto;
   font-family: "Poppins", Times, serif;
@@ -68,6 +69,11 @@
 }
 
 .profile__edit-profile {
+  font-family: "Poppins", Times, serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  cursor: pointer;
   display: flex;
   gap: 8px;
   opacity: 70%;
@@ -77,10 +83,11 @@
 }
 
 .profile__edit-profile:hover {
-  opacity: 85%;
+  opacity: 1;
 }
 
 .profile__new-post {
+  cursor: pointer;
   width: 149px;
   height: 52px;
   align-self: end;
@@ -95,7 +102,7 @@
 }
 
 .profile__new-post:hover {
-  background-color: #333333;
+  opacity: 80%;
 }
 
 @media screen and (max-width: 627px) {

@@ -2,6 +2,8 @@
 
 [link to git page](https://github.com/ezrabales/se_project_spots)
 
+[link to video](https://drive.google.com/file/d/1NOkNNQNfdgB5_kKhwmYglXA1WuduWWDR/view?usp=sharing)
+
 ### Overview
 
 - Intro

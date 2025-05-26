@@ -30,16 +30,13 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-height: 60px;
-  height: auto;
-  max-width: 900px;
+  max-width: 420px;
 }
 
 .profile__name {
   margin: 0;
-  height: auto;
   width: auto;
-  font-family: "Poppins", Times, serif;
+  font-family: "Poppins", "Arial", sans-serif;
   font-weight: 500;
   line-height: 100%;
   font-size: 32px;
@@ -55,7 +52,7 @@
   margin: 0;
   height: auto;
   width: auto;
-  font-family: "Poppins", Times, serif;
+  font-family: "Poppins", "Arial", sans-serif;
 
   font-weight: 500;
   font-size: 16px;
@@ -69,7 +66,7 @@
 }
 
 .profile__edit-profile {
-  font-family: "Poppins", Times, serif;
+  font-family: "Poppins", "Arial", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
@@ -95,7 +92,7 @@
   background-color: #212121;
   color: #fcf5e5;
   border: 0;
-  font-family: "Poppins", Times, serif;
+  font-family: "Poppins", "Arial", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;

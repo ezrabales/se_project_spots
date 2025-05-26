@@ -20,7 +20,7 @@
 
 .card__name {
   max-width: 350px;
-  font-family: "Poppins", Times, serif;
+  font-family: "Poppins", "Arial", sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 120%;

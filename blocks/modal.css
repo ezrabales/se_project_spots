@@ -41,7 +41,7 @@
 
 .modal__title {
   margin: 0 0 32px;
-  font-family: "Poppins", Times, serif;
+  font-family: "Poppins", "Arial", sans-serif;
   font-weight: 500;
   font-size: 32px;
   line-height: 100%;
@@ -55,7 +55,7 @@
 }
 
 .modal__label {
-  font-family: "Poppins", Times, serif;
+  font-family: "Poppins", "Arial", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 110%;
@@ -69,7 +69,7 @@
   width: 100%;
   border: 1px solid #21212166;
   border-radius: 8px;
-  font-family: "Poppins", Times, serif;
+  font-family: "Poppins", "Arial", sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
@@ -82,7 +82,7 @@
   border-radius: 8px;
   padding: 18px 58px;
   background-color: #212121;
-  font-family: "Poppins", Times, serif;
+  font-family: "Poppins", "Arial", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;

@@ -1,0 +1,127 @@
+.modal {
+  visibility: hidden;
+  background-color: #00000080;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.modal__container {
+  max-width: 730px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative;
+  padding: 32px 50px;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 32px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/close-icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 0;
+  background-color: transparent;
+  opacity: 40%;
+}
+
+.modal__close-btn:hover {
+  opacity: 100%;
+}
+
+.modal__title {
+  margin: 0 0 32px;
+  font-family: "Poppins", Times, serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
+  color: #212121;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.modal__label {
+  font-family: "Poppins", Times, serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 110%;
+  color: #212121b2;
+}
+
+.modal__input {
+  margin-top: 8px;
+  display: block;
+  padding: 16px 12px;
+  width: 100%;
+  border: 1px solid #21212166;
+  border-radius: 8px;
+  font-family: "Poppins", Times, serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: #212121;
+}
+
+.modal__submit-btn {
+  width: 156px;
+  height: auto;
+  border-radius: 8px;
+  padding: 18px 58px;
+  background-color: #212121;
+  font-family: "Poppins", Times, serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #fcf5e5;
+}
+
+.modal__submit-btn:hover {
+  background-color: #212121cc;
+}
+
+.modal_is-opened {
+  visibility: visible;
+}
+
+@media screen and (max-width: 627px) {
+  .modal {
+    padding: 0 10px;
+  }
+  .modal__container {
+    padding: 12px;
+  }
+  .modal__title {
+    margin-bottom: 24px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .modal__close-btn {
+    top: 12px;
+    right: 12px;
+  }
+  .modal__title {
+    font-size: 20px;
+  }
+  .modal__input {
+    font-size: 16px;
+    width: calc(100% - 26px);
+  }
+  .modal__submit-btn {
+    width: auto;
+  }
+}

@@ -1,5 +1,6 @@
 .modal {
   visibility: hidden;
+  opacity: 0;
   background-color: #00000080;
   position: fixed;
   top: 0;
@@ -10,6 +11,7 @@
   justify-content: center;
   align-items: center;
   padding: 0 50px;
+  transition: opacity 0.5s ease, visibility ease 0.5s;
 }
 
 .modal__container {
@@ -95,6 +97,7 @@
 
 .modal_is-opened {
   visibility: visible;
+  opacity: 1;
 }
 
 @media screen and (max-width: 627px) {

@@ -11,10 +11,11 @@
   justify-content: center;
   align-items: center;
   padding: 0 50px;
-  transition: opacity 0.5s ease, visibility ease 0.5s;
+  transition: opacity 0.5s ease, visibility ease 0.4s;
 }
 
 .modal__container {
+  box-sizing: border-box;
   max-width: 730px;
   width: 100%;
   border-radius: 8px;
@@ -24,6 +25,7 @@
 }
 
 .modal__close-btn {
+  cursor: pointer;
   position: absolute;
   top: 32px;
   right: 50px;
@@ -65,6 +67,7 @@
 }
 
 .modal__input {
+  box-sizing: border-box;
   margin-top: 8px;
   display: block;
   padding: 16px 12px;
@@ -79,6 +82,8 @@
 }
 
 .modal__submit-btn {
+  cursor: pointer;
+  border: none;
   width: 156px;
   height: auto;
   border-radius: 8px;
@@ -107,6 +112,9 @@
   .modal__container {
     padding: 12px;
   }
+  .modal__form {
+    gap: 24px;
+  }
   .modal__title {
     margin-bottom: 24px;
     height: 40px;
@@ -122,7 +130,6 @@
   }
   .modal__input {
     font-size: 16px;
-    width: calc(100% - 26px);
   }
   .modal__submit-btn {
     width: auto;

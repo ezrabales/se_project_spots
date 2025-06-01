@@ -24,6 +24,13 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
+// modal functions
+const openModal = (modal) => {
+  modal.classList.add("modal_is-opened");
+};
+const closeModal = (modal) => {
+  modal.classList.remove("modal_is-opened");
+};
 
 // edit profile Vars
 const editProfileBtn = document.querySelector(".profile__edit-profile");
@@ -46,7 +53,7 @@ const newPostCaption = newPostModal.querySelector("#post-caption-input");
 
 // edit profile functions
 function closeProfileModal() {
-  editProfileModale.classList.remove("modal_is-opened");
+  closeModal(editProfileModale);
 }
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -57,7 +64,7 @@ function handleProfileFormSubmit(evt) {
 
 // edit profile EventListeners
 editProfileBtn.addEventListener("click", function () {
-  editProfileModale.classList.add("modal_is-opened");
+  openModal(editProfileModale);
   editProfileName.value = profileName.textContent;
   editProfileDescription.value = profileDescription.textContent;
 });
@@ -67,7 +74,7 @@ editProfileCloseBtn.addEventListener("click", closeProfileModal);
 editProfileModale.addEventListener("submit", handleProfileFormSubmit);
 //new post functions
 function closeNewPostModal() {
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 }
 
 function handleNewPostSubmit(evt) {
@@ -79,7 +86,7 @@ function handleNewPostSubmit(evt) {
 
 // new post EventListeners
 newPostBtn.addEventListener("click", function () {
-  newPostModal.classList.add("modal_is-opened");
+  openModal(newPostModal);
 });
 newPostClostBtn.addEventListener("click", closeNewPostModal);
 

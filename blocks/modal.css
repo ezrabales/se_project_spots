@@ -100,6 +100,56 @@
   background-color: #212121cc;
 }
 
+.modal__image-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.modal__image {
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+.modal__image-description {
+  margin: 0;
+  height: 32px;
+  width: fit-content;
+  max-width: 80vw;
+  background-color: #212121;
+  font-family: "Poppins", "Arial", sans-serif;
+  font-size: 20px;
+  line-height: 120%;
+  font-weight: 500;
+  color: #ffffff;
+  border-radius: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+}
+
+.modal__image_close-btn {
+  cursor: pointer;
+  position: absolute;
+  right: -52.5px;
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/imageCloseBtn.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 0;
+  background-color: transparent;
+}
+
+.modal__image_close-btn:hover {
+  opacity: 40%;
+}
+
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
@@ -133,5 +183,15 @@
   }
   .modal__submit-btn {
     width: auto;
+  }
+  .modal__image_close-btn {
+    right: 0;
+    top: -48px;
+  }
+  .modal__image-description {
+    height: 27px;
+  }
+  .modal__image {
+    border-radius: 4px;
   }
 }

@@ -48,74 +48,16 @@
         </section>
         <section class="cards">
           <ul class="cards__list">
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="building and mountain from window"
-              />
-              <div class="card__image-footer">
-                <h2 class="card__name">Val Thorens</h2>
-                <button class="card__like-btn" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/2-photo-by-ceiline-from-pexels.jpg"
-                alt="foreign restraunt"
-              />
-              <div class="card__image-footer">
-                <h2 class="card__name">Restraunt terrace</h2>
-                <button class="card__like-btn" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-                alt="people sitting at outside cafe"
-              />
-              <div class="card__image-footer">
-                <h2 class="card__name">An outdoor cafe</h2>
-                <button class="card__like-btn" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
-                alt="long bridge in forest"
-              />
-              <div class="card__image-footer">
-                <h2 class="card__name">
-                  A very long bridge, over the forest...
-                </h2>
-                <button class="card__like-btn" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-                alt="long hallway"
-              />
-              <div class="card__image-footer">
-                <h2 class="card__name">Tunnel with morning light</h2>
-                <button class="card__like-btn" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="snowy hut in forest"
-              />
-              <div class="card__image-footer">
-                <h2 class="card__name">Mountain house</h2>
-                <button class="card__like-btn" type="button"></button>
-              </div>
-            </li>
+            <template id="card__template">
+              <li class="card">
+                <button class="card__trash-btn" type="button"></button>
+                <img class="card__image" />
+                <div class="card__image-footer">
+                  <h2 class="card__name"></h2>
+                  <button class="card__like-btn" type="button"></button>
+                </div>
+              </li>
+            </template>
           </ul>
         </section>
       </main>
@@ -178,6 +120,13 @@
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
+        </div>
+      </div>
+      <div class="modal" id="image-modal">
+        <div class="modal__image-container">
+          <img class="modal__image" />
+          <button class="modal__image_close-btn"></button>
+          <h3 class="modal__image-description"></h3>
         </div>
       </div>
     </div>

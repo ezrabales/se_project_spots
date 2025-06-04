@@ -93,11 +93,11 @@ function closeNewPostModal() {
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
   const newCard = { name: newPostCaption.value, link: newPostLink.value };
-  console.log(newCard.name);
-  console.log(newCard.link);
   initialCards.push(newCard);
   addCard(newCard);
   closeNewPostModal();
+  newPostCaption.value = "";
+  newPostLink.value = "";
 }
 
 // new post EventListeners

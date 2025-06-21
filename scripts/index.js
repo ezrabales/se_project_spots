@@ -38,6 +38,7 @@ const openModal = (modal) => {
 };
 const closeModal = (modal) => {
   modal.classList.remove("modal_is-opened");
+  removeEscape()
 };
 
 // image modal close button
@@ -77,9 +78,12 @@ function handleProfileFormSubmit(evt) {
 
 // edit profile EventListeners
 editProfileBtn.addEventListener("click", function () {
-  openModal(editProfileModale);
   editProfileName.value = profileName.textContent;
   editProfileDescription.value = profileDescription.textContent;
+  hideErrorMsgs(editProfileModale, [editProfileName, editProfileDescription], settings)
+  openModal(editProfileModale);
+  enableValidation(settings);
+  addEscape(editProfileModale)
 });
 
 editProfileCloseBtn.addEventListener("click", closeProfileModal);
@@ -103,10 +107,36 @@ function handleNewPostSubmit(evt) {
 // new post EventListeners
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
+  enableValidation(settings);
+  addEscape(newPostModal)
 });
 newPostClostBtn.addEventListener("click", closeNewPostModal);
 
 newPostModal.addEventListener("submit", handleNewPostSubmit);
+
+// close modals by clicking outside
+const modals = document.querySelectorAll(".modal");
+modals.forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+      if (evt.target.classList.contains("modal")) {
+        closeModal(modal);
+      };
+  });
+});
+
+// close modals when "esc" is pressed
+const addEscape = (modal) => {
+  document.addEventListener("keydown", escEventListener = (evt) => {
+    if (evt.key === "Escape") {
+      closeModal(modal)
+    }
+  })
+}
+
+// remove event listener for "esc"
+const removeEscape = () => {
+  document.removeEventListener("keydown", escEventListener)
+}
 
 // card template vars
 const cardTemplate = document.querySelector("#card__template");
@@ -136,6 +166,7 @@ const getCardElement = (data) => {
     imageModalImage.src = data.link;
     imageModalImage.alt = data.name;
     openModal(imageModal);
+    addEscape(imageModal)
   });
 
   return cardElement;

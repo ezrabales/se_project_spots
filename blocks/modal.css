@@ -43,10 +43,6 @@
   opacity: 100%;
 }
 
-.modal__close-btn_disabled {
-  opacity: 50%;
-}
-
 .modal__title {
   margin: 0 0 32px;
   font-family: "Poppins", "Arial", sans-serif;
@@ -109,6 +105,10 @@
   background-color: #212121cc;
 }
 
+.modal__submit-btn_disabled {
+  opacity: 50%;
+}
+
 .modal__image-container {
   display: flex;
   flex-direction: column;
@@ -142,7 +142,7 @@
   align-items: center;
 }
 
-.modal__image_close-btn {
+.modal__image-close-btn {
   cursor: pointer;
   position: absolute;
   right: -52.5px;
@@ -155,7 +155,7 @@
   background-color: transparent;
 }
 
-.modal__image_close-btn:hover {
+.modal__image-close-btn:hover {
   opacity: 40%;
 }
 
@@ -201,7 +201,7 @@
   .modal__submit-btn {
     width: auto;
   }
-  .modal__image_close-btn {
+  .modal__image-close-btn {
     right: 0;
     top: -48px;
   }

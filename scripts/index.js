@@ -30,7 +30,7 @@ const imageModalImage = imageModal.querySelector(".modal__image");
 const imageModalDescription = imageModal.querySelector(
   ".modal__image-description"
 );
-const imageModalCloseBtn = imageModal.querySelector(".modal__image_close-btn");
+const imageModalCloseBtn = imageModal.querySelector(".modal__image-close-btn");
 
 // modal functions
 const openModal = (modal) => {
@@ -48,11 +48,11 @@ imageModalCloseBtn.addEventListener("click", () => {
 
 // edit profile Vars
 const editProfileBtn = document.querySelector(".profile__edit-profile");
-const editProfileModale = document.querySelector("#edit-profile-modal");
+const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn =
-  editProfileModale.querySelector(".modal__close-btn");
-const editProfileName = editProfileModale.querySelector("#profile-name-input");
-const editProfileDescription = editProfileModale.querySelector(
+  editProfileModal.querySelector(".modal__close-btn");
+const editProfileName = editProfileModal.querySelector("#profile-name-input");
+const editProfileDescription = editProfileModal.querySelector(
   "#profile-description-input"
 );
 // profile vars
@@ -61,13 +61,13 @@ const profileDescription = document.querySelector(".profile__description");
 // new post Vars
 const newPostBtn = document.querySelector(".profile__new-post");
 const newPostModal = document.querySelector("#new-post-modal");
-const newPostClostBtn = newPostModal.querySelector(".modal__close-btn");
+const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostLink = newPostModal.querySelector("#post-link-input");
 const newPostCaption = newPostModal.querySelector("#post-caption-input");
 
 // edit profile functions
 function closeProfileModal() {
-  closeModal(editProfileModale);
+  closeModal(editProfileModal);
 }
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -80,15 +80,15 @@ function handleProfileFormSubmit(evt) {
 editProfileBtn.addEventListener("click", function () {
   editProfileName.value = profileName.textContent;
   editProfileDescription.value = profileDescription.textContent;
-  hideErrorMsgs(editProfileModale, [editProfileName, editProfileDescription], settings)
-  openModal(editProfileModale);
+  hideErrorMsgs(editProfileModal, [editProfileName, editProfileDescription], settings)
+  openModal(editProfileModal);
   enableValidation(settings);
-  addEscape(editProfileModale)
+  addEscape(editProfileModal)
 });
 
 editProfileCloseBtn.addEventListener("click", closeProfileModal);
 
-editProfileModale.addEventListener("submit", handleProfileFormSubmit);
+editProfileModal.addEventListener("submit", handleProfileFormSubmit);
 //new post functions
 function closeNewPostModal() {
   closeModal(newPostModal);
@@ -110,7 +110,7 @@ newPostBtn.addEventListener("click", function () {
   enableValidation(settings);
   addEscape(newPostModal)
 });
-newPostClostBtn.addEventListener("click", closeNewPostModal);
+newPostCloseBtn.addEventListener("click", closeNewPostModal);
 
 newPostModal.addEventListener("submit", handleNewPostSubmit);
 

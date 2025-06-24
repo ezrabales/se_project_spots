@@ -103,18 +103,12 @@ function handleNewPostSubmit(evt) {
   closeNewPostModal();
   newPostCaption.value = "";
   newPostLink.value = "";
-  disableButton(newPostSubmitBtn);
-}
-
-const disableButton = (buttonElement) => {
-  buttonElement.classList.add(config.inactiveButtonClass);
-  buttonElement.disabled = true
+  toggleButtonState([newPostCaption, newPostLink], newPostSubmitBtn, settings)
 }
 
 // new post EventListeners
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
-  enableValidation(settings);
 });
 newPostCloseBtn.addEventListener("click", closeNewPostModal);
 

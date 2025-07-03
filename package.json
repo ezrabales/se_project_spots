@@ -1,0 +1,19 @@
+{
+  "name": "se_project_spots-main",
+  "version": "1.0.0",
+  "description": "[link to git page](https://ezrabales.github.io/se_project_spots/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezrabales/se_project_spots.git"
+  },
+  "author": "Ezra Bales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ezrabales/se_project_spots/issues"
+  },
+  "homepage": "https://github.com/ezrabales/se_project_spots#readme"
+}

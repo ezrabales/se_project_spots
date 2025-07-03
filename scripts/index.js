@@ -1,3 +1,10 @@
+import {
+  toggleButtonState,
+  enableValidation,
+  hideErrorMsgs,
+  settings,
+} from "./validation.js";
+
 const initialCards = [
   {
     name: "Mountain house",
@@ -39,7 +46,7 @@ const openModal = (modal) => {
 };
 const closeModal = (modal) => {
   modal.classList.remove("modal_is-opened");
-  removeEscape()
+  removeEscape();
 };
 
 // image modal close button
@@ -50,8 +57,7 @@ imageModalCloseBtn.addEventListener("click", () => {
 // edit profile Vars
 const editProfileBtn = document.querySelector(".profile__edit-profile");
 const editProfileModal = document.querySelector("#edit-profile-modal");
-const editProfileCloseBtn =
-  editProfileModal.querySelector(".modal__close-btn");
+const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileName = editProfileModal.querySelector("#profile-name-input");
 const editProfileDescription = editProfileModal.querySelector(
   "#profile-description-input"
@@ -82,7 +88,11 @@ function handleProfileFormSubmit(evt) {
 editProfileBtn.addEventListener("click", function () {
   editProfileName.value = profileName.textContent;
   editProfileDescription.value = profileDescription.textContent;
-  hideErrorMsgs(editProfileModal, [editProfileName, editProfileDescription], settings)
+  hideErrorMsgs(
+    editProfileModal,
+    [editProfileName, editProfileDescription],
+    settings
+  );
   openModal(editProfileModal);
 });
 
@@ -103,7 +113,7 @@ function handleNewPostSubmit(evt) {
   closeNewPostModal();
   newPostCaption.value = "";
   newPostLink.value = "";
-  toggleButtonState([newPostCaption, newPostLink], newPostSubmitBtn, settings)
+  toggleButtonState([newPostCaption, newPostLink], newPostSubmitBtn, settings);
 }
 
 // new post EventListeners
@@ -118,25 +128,28 @@ newPostModal.addEventListener("submit", handleNewPostSubmit);
 const modals = document.querySelectorAll(".modal");
 modals.forEach((modal) => {
   modal.addEventListener("click", (evt) => {
-      if (evt.target.classList.contains("modal")) {
-        closeModal(modal);
-      };
+    if (evt.target.classList.contains("modal")) {
+      closeModal(modal);
+    }
   });
 });
 
 // close modals when "esc" is pressed
 const addEscape = (modal) => {
-  document.addEventListener("keydown", escEventListener = (evt) => {
-    if (evt.key === "Escape") {
-      closeModal(modal)
-    }
-  })
-}
+  document.addEventListener(
+    "keydown",
+    (escEventListener = (evt) => {
+      if (evt.key === "Escape") {
+        closeModal(modal);
+      }
+    })
+  );
+};
 
 // remove event listener for "esc"
 const removeEscape = () => {
-  document.removeEventListener("keydown", escEventListener)
-}
+  document.removeEventListener("keydown", escEventListener);
+};
 
 // card template vars
 const cardTemplate = document.querySelector("#card__template");

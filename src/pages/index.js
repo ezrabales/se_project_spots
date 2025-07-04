@@ -3,7 +3,18 @@ import {
   enableValidation,
   hideErrorMsgs,
   settings,
-} from "./validation.js";
+} from "../scripts/validation.js";
+import "./index.css";
+import headerLogoSrc from "../images/Logo.svg";
+import profileImageSrc from "../images/avatar.svg";
+import profileIconSrc from "../images/edit-icon.svg";
+
+const headerLogoImage = document.getElementById("header-logo");
+headerLogoImage.src = headerLogoSrc;
+const profileImageImage = document.getElementById("profile-image");
+profileImageImage.src = profileImageSrc;
+const profileIconImage = document.getElementById("profile-icon");
+profileIconImage.src = profileIconSrc;
 
 const initialCards = [
   {

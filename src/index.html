@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Ezra Bales" />
+    <meta
+      name="keywords"
+      content="spots, social media, media, photots, profile"
+    />
+    <meta
+      name="description"
+      content="a social media web app designed around sharing photos"
+    />
+    <title>SPOTS</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img class="header__logo" alt="spots logo" id="header-logo" />
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile__content">
+            <img
+              class="profile__avatar"
+              alt="profile image"
+              id="profile-image"
+            />
+            <div class="profile__text">
+              <div class="profile__name-and-description">
+                <h1 class="profile__name">Bessie Coleman</h1>
+                <p class="profile__description">Civil Aviator</p>
+              </div>
+              <button class="profile__edit-profile" type="button">
+                <img
+                  class="profile__edit-icon"
+                  alt="edit icon"
+                  id="profile-icon"
+                />
+                edit profile
+              </button>
+            </div>
+          </div>
+          <button class="profile__new-post" type="button">+ New Post</button>
+        </section>
+        <section class="cards">
+          <ul class="cards__list">
+            <template id="card__template">
+              <li class="card">
+                <button class="card__trash-btn" type="button"></button>
+                <img class="card__image" />
+                <div class="card__image-footer">
+                  <h2 class="card__name"></h2>
+                  <button class="card__like-btn" type="button"></button>
+                </div>
+              </li>
+            </template>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">2023 © Spots</p>
+      </footer>
+      <div class="modal" id="edit-profile-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title">Edit profile</h2>
+          <form class="modal__form">
+            <label for="profile-name-input" class="modal__label">
+              Name
+              <input
+                id="profile-name-input"
+                type="text"
+                class="modal__input"
+                placeholder="Type your name"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span
+                class="profile-name-input-error modal__error-message"
+              ></span>
+            </label>
+            <label for="profile-description-input" class="modal__label">
+              Description
+              <input
+                id="profile-description-input"
+                type="text"
+                class="modal__input"
+                placeholder="Describe yourself"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span
+                class="profile-description-input-error modal__error-message"
+              ></span>
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal" id="new-post-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title">New post</h2>
+          <form class="modal__form">
+            <label for="post-link-input" class="modal__label">
+              Image link
+              <input
+                id="post-link-input"
+                class="modal__input"
+                placeholder="Paste a link to the picture"
+                type="url"
+                required
+              />
+              <span class="post-link-input-error modal__error-message"></span>
+            </label>
+            <label for="post-caption-input" class="modal__label">
+              Caption
+              <input
+                id="post-caption-input"
+                type="text"
+                class="modal__input"
+                placeholder="Type your caption"
+                minlength="2"
+                maxlength="30"
+                required
+              />
+              <span
+                class="post-caption-input-error modal__error-message"
+              ></span>
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal" id="image-modal">
+        <div class="modal__image-container">
+          <img class="modal__image" />
+          <button class="modal__image-close-btn"></button>
+          <h3 class="modal__image-description"></h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

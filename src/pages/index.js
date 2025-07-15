@@ -68,6 +68,7 @@ const editProfileImageInput = editAvatarModal.querySelector(
 const editProfileSubmitBtn =
   editProfileModal.querySelector(".modal__submit-btn");
 const editAvatarSubmitBtn = editAvatarModal.querySelector(".modal__submit-btn");
+const editAvatarCloseBtn = editAvatarModal.querySelector(".modal__close-btn");
 // new post Vars
 const newPostBtn = document.querySelector(".profile__new-post");
 const newPostModal = document.querySelector("#new-post-modal");
@@ -76,12 +77,14 @@ const newPostLink = newPostModal.querySelector("#post-link-input");
 const newPostCaption = newPostModal.querySelector("#post-caption-input");
 const newPostSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 // edit profile functions
+editAvatarCloseBtn.addEventListener("click", () => {
+  closeModal(editAvatarModal);
+});
 function closeProfileModal() {
   closeModal(editProfileModal);
 }
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  editProfileSubmitBtn.textContent = "Saving...";
   profileName.textContent = editProfileName.value;
   profileDescription.textContent = editProfileDescription.value;
   api
@@ -89,22 +92,24 @@ function handleProfileFormSubmit(evt) {
       name: editProfileName.value,
       about: editProfileDescription.value,
     })
+    .then(closeProfileModal(), (editProfileSubmitBtn.textContent = "Saving..."))
     .finally(() => {
       editProfileSubmitBtn.textContent = "Save";
     });
-  closeProfileModal();
 }
 function handleEditAvatarFormSubmit(evt) {
   evt.preventDefault();
   editAvatarSubmitBtn.textContent = "Saving...";
-  profileImageImage.src = editProfileImageInput.value;
   api
     .updateProfilePicture({ avatar: editProfileImageInput.value })
+    .then(
+      closeModal(editAvatarModal),
+      (editProfileImageInput.value = ""),
+      (profileImageImage.src = editProfileImageInput.value)
+    )
     .finally(() => {
       editAvatarSubmitBtn.textContent = "Save";
     });
-  closeModal(editAvatarModal);
-  editProfileImageInput.value = "";
 }
 
 // edit profile EventListeners
@@ -135,19 +140,33 @@ function closeNewPostModal() {
   closeModal(newPostModal);
 }
 
+async function apiNewCard(name, link, card) {
+  await api
+    .addNewcard({ name: name, link: link })
+    .then((res) => {
+      card.id = res._id;
+    })
+    .finally(() => {
+      newPostSubmitBtn.textContent = "Save";
+    });
+}
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
   newPostSubmitBtn.textContent = "Saving...";
-  const newCard = { name: newPostCaption.value, link: newPostLink.value };
-  addCard(newCard);
-  api
-    .addNewcard({ name: newPostCaption.value, link: newPostLink.value })
-    .finally(() => {
-      editAvatarSubmitBtn.textContent = "Save";
-    });
-  closeNewPostModal();
-  newPostCaption.value = "";
-  newPostLink.value = "";
+  const newCard = {
+    name: newPostCaption.value,
+    link: newPostLink.value,
+  };
+  apiNewCard(
+    newPostCaption.value,
+    newPostLink.value,
+    document.querySelector(".card")
+  ).then(
+    addCard(newCard),
+    closeNewPostModal(),
+    (newPostCaption.value = ""),
+    (newPostLink.value = "")
+  );
   toggleButtonState([newPostCaption, newPostLink], newPostSubmitBtn, settings);
 }
 
@@ -210,12 +229,15 @@ const getCardElement = (data) => {
     cardLikeBtn.classList.add("card__like-btn-clicked");
   }
   cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-btn-clicked");
     selectedCard = cardLikeBtn.closest(".card");
     if (cardLikeBtn.classList.contains("card__like-btn-clicked")) {
-      api.likeCard({ id: selectedCard.id });
+      api
+        .likeCard({ id: selectedCard.id })
+        .then(cardLikeBtn.classList.toggle("card__like-btn-clicked"));
     } else {
-      api.unlikeCard({ id: selectedCard.id });
+      api
+        .unlikeCard({ id: selectedCard.id })
+        .then(cardLikeBtn.classList.toggle("card__like-btn-clicked"));
     }
   });
   // trash listener
@@ -240,10 +262,12 @@ const getCardElement = (data) => {
 //trash logic
 const trashDeleteBtn = trashModal.querySelector(".modal__delete-btn");
 trashDeleteBtn.addEventListener("click", () => {
+  trashDeleteBtn.textContent = "Deleting...";
   trashDeleteBtn.disabled = true;
-  selectedCard.remove();
-  api.deleteCard({ id: selectedCard.id });
-  closeModal(trashModal);
+  api
+    .deleteCard({ id: selectedCard.id })
+    .then(selectedCard.remove(), closeModal(trashModal))
+    .finally((trashDeleteBtn.textContent = "Delete"));
 });
 
 const deleteCloseBtn = trashModal.querySelector(".modal__delete_close-btn");

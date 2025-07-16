@@ -92,7 +92,9 @@ function handleProfileFormSubmit(evt) {
       name: editProfileName.value,
       about: editProfileDescription.value,
     })
-    .then(closeProfileModal(), (editProfileSubmitBtn.textContent = "Saving..."))
+    .then(() => {
+      closeProfileModal(), (editProfileSubmitBtn.textContent = "Saving...");
+    })
     .finally(() => {
       editProfileSubmitBtn.textContent = "Save";
     });
@@ -102,11 +104,11 @@ function handleEditAvatarFormSubmit(evt) {
   editAvatarSubmitBtn.textContent = "Saving...";
   api
     .updateProfilePicture({ avatar: editProfileImageInput.value })
-    .then(
+    .then(() => {
       closeModal(editAvatarModal),
-      (editProfileImageInput.value = ""),
-      (profileImageImage.src = editProfileImageInput.value)
-    )
+        (editProfileImageInput.value = ""),
+        (profileImageImage.src = editProfileImageInput.value);
+    })
     .finally(() => {
       editAvatarSubmitBtn.textContent = "Save";
     });
@@ -140,11 +142,11 @@ function closeNewPostModal() {
   closeModal(newPostModal);
 }
 
-async function apiNewCard(name, link, card) {
-  await api
-    .addNewcard({ name: name, link: link })
+async function apiNewCard(name, link) {
+  return api
+    .addNewcard({ name, link })
     .then((res) => {
-      card.id = res._id;
+      addCard(res);
     })
     .finally(() => {
       newPostSubmitBtn.textContent = "Save";
@@ -157,17 +159,10 @@ function handleNewPostSubmit(evt) {
     name: newPostCaption.value,
     link: newPostLink.value,
   };
-  apiNewCard(
-    newPostCaption.value,
-    newPostLink.value,
-    document.querySelector(".card")
-  ).then(
-    addCard(newCard),
+  apiNewCard(newPostCaption.value, newPostLink.value).then(
     closeNewPostModal(),
-    (newPostCaption.value = ""),
-    (newPostLink.value = "")
+    evt.target.reset()
   );
-  toggleButtonState([newPostCaption, newPostLink], newPostSubmitBtn, settings);
 }
 
 // new post EventListeners
@@ -231,13 +226,13 @@ const getCardElement = (data) => {
   cardLikeBtn.addEventListener("click", () => {
     selectedCard = cardLikeBtn.closest(".card");
     if (cardLikeBtn.classList.contains("card__like-btn-clicked")) {
-      api
-        .likeCard({ id: selectedCard.id })
-        .then(cardLikeBtn.classList.toggle("card__like-btn-clicked"));
+      api.unlikeCard({ id: selectedCard.id }).then(() => {
+        cardLikeBtn.classList.toggle("card__like-btn-clicked");
+      });
     } else {
-      api
-        .unlikeCard({ id: selectedCard.id })
-        .then(cardLikeBtn.classList.toggle("card__like-btn-clicked"));
+      api.likeCard({ id: selectedCard.id }).then(() => {
+        cardLikeBtn.classList.toggle("card__like-btn-clicked");
+      });
     }
   });
   // trash listener
@@ -266,8 +261,12 @@ trashDeleteBtn.addEventListener("click", () => {
   trashDeleteBtn.disabled = true;
   api
     .deleteCard({ id: selectedCard.id })
-    .then(selectedCard.remove(), closeModal(trashModal))
-    .finally((trashDeleteBtn.textContent = "Delete"));
+    .then(() => {
+      selectedCard.remove(), closeModal(trashModal);
+    })
+    .finally(() => {
+      trashDeleteBtn.textContent = "Delete";
+    });
 });
 
 const deleteCloseBtn = trashModal.querySelector(".modal__delete_close-btn");

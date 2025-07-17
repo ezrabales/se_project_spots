@@ -85,15 +85,20 @@ function closeProfileModal() {
 }
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editProfileName.value;
-  profileDescription.textContent = editProfileDescription.value;
+  editProfileSubmitBtn.textContent = "Saving...";
+
   api
     .editUserInfo({
       name: editProfileName.value,
       about: editProfileDescription.value,
     })
     .then(() => {
-      closeProfileModal(), (editProfileSubmitBtn.textContent = "Saving...");
+      profileName.textContent = editProfileName.value;
+      profileDescription.textContent = editProfileDescription.value;
+      closeProfileModal();
+    })
+    .catch((err) => {
+      console.error("Failed to update profile:", err);
     })
     .finally(() => {
       editProfileSubmitBtn.textContent = "Save";
@@ -105,9 +110,11 @@ function handleEditAvatarFormSubmit(evt) {
   api
     .updateProfilePicture({ avatar: editProfileImageInput.value })
     .then(() => {
-      closeModal(editAvatarModal),
-        (editProfileImageInput.value = ""),
-        (profileImageImage.src = editProfileImageInput.value);
+      editAvatarSubmitBtn.disabled = true;
+      closeModal(editAvatarModal);
+      profileImageImage.src = editProfileImageInput.value;
+      editProfileImageInput.value = "";
+      toggleButtonState([editProfileImageInput], editAvatarSubmitBtn, settings);
     })
     .finally(() => {
       editAvatarSubmitBtn.textContent = "Save";
@@ -159,10 +166,16 @@ function handleNewPostSubmit(evt) {
     name: newPostCaption.value,
     link: newPostLink.value,
   };
-  apiNewCard(newPostCaption.value, newPostLink.value).then(
-    closeNewPostModal(),
-    evt.target.reset()
-  );
+  apiNewCard(newPostCaption.value, newPostLink.value).then(() => {
+    newPostSubmitBtn.disabled = true;
+    closeNewPostModal();
+    evt.target.reset();
+    toggleButtonState(
+      [newPostCaption, newPostLink],
+      newPostSubmitBtn,
+      settings
+    );
+  });
 }
 
 // new post EventListeners
@@ -262,7 +275,8 @@ trashDeleteBtn.addEventListener("click", () => {
   api
     .deleteCard({ id: selectedCard.id })
     .then(() => {
-      selectedCard.remove(), closeModal(trashModal);
+      selectedCard.remove();
+      closeModal(trashModal);
     })
     .finally(() => {
       trashDeleteBtn.textContent = "Delete";

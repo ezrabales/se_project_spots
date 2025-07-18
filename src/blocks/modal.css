@@ -24,6 +24,16 @@
   padding: 32px 50px;
 }
 
+.modal__delete-container {
+  padding: 32px 20px;
+}
+
+.modal__button-container {
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 .modal__close-btn {
   cursor: pointer;
   position: absolute;
@@ -43,6 +53,10 @@
   opacity: 100%;
 }
 
+.modal__delete_close-btn {
+  top: 0px;
+}
+
 .modal__title {
   margin: 0 0 32px;
   font-family: "Poppins", "Arial", sans-serif;
@@ -50,6 +64,16 @@
   font-size: 32px;
   line-height: 100%;
   color: #212121;
+}
+
+.modal__delete-title {
+  font-family: "Poppins", "Arial", sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  margin: 0 0 32px;
 }
 
 .modal__form {
@@ -82,22 +106,24 @@
 }
 
 .modal__input_error {
-  border-color: #FF000099;
-  
+  border-color: #ff000099;
 }
 
-.modal__submit-btn {
+.modal__btn {
   cursor: pointer;
   border: none;
   width: 156px;
   height: auto;
   border-radius: 8px;
   padding: 18px 58px;
-  background-color: #212121;
   font-family: "Poppins", "Arial", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
+}
+
+.modal__submit-btn {
+  background-color: #212121;
   color: #fcf5e5;
 }
 
@@ -107,6 +133,26 @@
 
 .modal__submit-btn_disabled {
   opacity: 50%;
+}
+
+.modal__delete-btn {
+  padding: 18px 32px;
+  background-color: #ff6565;
+  color: #212121;
+}
+
+.modal__delete-btn:hover {
+  background-color: #ff3333;
+}
+
+.modal__cancel-btn {
+  padding: 18px 32px;
+  border: 1px solid #212121;
+}
+
+.modal__cancel-btn:hover {
+  background-color: #212121;
+  color: #ffffff;
 }
 
 .modal__image-container {
@@ -142,7 +188,7 @@
   align-items: center;
 }
 
-.modal__image-close-btn {
+.modal__outside-close-btn {
   cursor: pointer;
   position: absolute;
   right: -52.5px;
@@ -155,11 +201,11 @@
   background-color: transparent;
 }
 
-.modal__image-close-btn:hover {
+.modal__ouside-close-btn:hover {
   opacity: 40%;
 }
 
-.modal__error-message{
+.modal__error-message {
   font-family: "Poppins", "Arial", sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -188,6 +234,15 @@
     display: flex;
     align-items: center;
   }
+  .modal__delete-title {
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  .modal__button-container {
+    flex-direction: column;
+    align-items: center;
+  }
   .modal__close-btn {
     top: 12px;
     right: 12px;
@@ -201,7 +256,7 @@
   .modal__submit-btn {
     width: auto;
   }
-  .modal__image-close-btn {
+  .modal__outside-close-btn {
     right: 0;
     top: -48px;
   }

@@ -2,7 +2,7 @@
 
 [link to git page](https://ezrabales.github.io/se_project_spots/)
 
-[link to video](https://drive.google.com/file/d/1NOkNNQNfdgB5_kKhwmYglXA1WuduWWDR/view?usp=sharing)
+[link to video](./src/videos/Project%209%20Demo.mp4)
 
 ### Overview
 
